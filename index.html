@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Salt Translator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+  </head>
+  <body>
+    <div class="salt_container">
+      <div class="center-block">
+        <h2 id="header">Переводчик на солёный</h2>
+
+        <div class="form-group">
+          <label for="comment">Введите текст:</label>
+          <textarea id="inputText" class="form-control" rows="5" id="comment"></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="button" name="translate" class="btn btn-success" onclick="salt()">Перевести</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    const salt = () => {
+      let text = document.getElementById("inputText").value;
+      document.getElementById("inputText").value = text.replace(/[аеёиоуыэюя]/g, '$&с$&');
+    };
+  </script>
+</html>
