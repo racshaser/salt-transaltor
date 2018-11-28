@@ -20,16 +20,40 @@
         </div>
 
         <div class="text-center">
-          <button type="button" name="translate" class="btn btn-success" onclick="salt()">Перевести</button>
+          <button
+            type="button"
+            name="translate"
+            style="width: 120px"
+            class="btn btn-success"
+            onclick="salt()"
+          >
+              Перевести
+          </button>
+          <button
+            type="button"
+            name="clear"
+            style="width: 120px"
+            class="btn btn-danger"
+            onclick="clearText()"
+          >
+            Очистить
+          </button>
         </div>
       </div>
     </div>
   </body>
 
   <script type="text/javascript">
+    const clearText = () => {
+      console.log(123);
+      document.getElementById("inputText").value = '';
+    };
+
     const salt = () => {
       let text = document.getElementById("inputText").value;
-      document.getElementById("inputText").value = text.replace(/[аеёиоуыэюя]/g, '$&с$&');
+      text = text.replace(/[АЕЕИОУЫЭЮЯаеёиоуыэюя]/g, '$&с$&');
+      text = text[0] + text.slice(1).toLowerCase();
+      document.getElementById("inputText").value = text;
     };
   </script>
 </html>
